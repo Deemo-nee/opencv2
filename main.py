@@ -1,16 +1,13 @@
-# This is a sample Python script.
+import cv2
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+img = cv2.imread("images/Lena.png")
 
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+imgBlur = cv2.GaussianBlur(imgGray, (7, 7), 0)
+imgCanny = cv2.Canny(img, 100, 100)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+cv2.imshow("Gray image", imgGray)
+cv2.imshow("Gray Blur", imgBlur)
+cv2.imshow("Gray Canny", imgCanny)
+cv2.waitKey(0)
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
